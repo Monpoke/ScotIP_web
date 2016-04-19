@@ -14,4 +14,14 @@
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>DialplanConfig</servlet-name>
+        <servlet-class>scotip.web.pages.DialplanConfig</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DialplanConfig</servlet-name>
+        <url-pattern>/switch/dialplan/config</url-pattern>
+    </servlet-mapping>
+
 </web-app>
