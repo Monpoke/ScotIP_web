@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Pierre on 18/04/2016.
+ * Created by Pierre on 20/04/2016.
  */
-@WebServlet(name="DialplanConfig", urlPatterns = "/switch/dialplan/config")
-public class DialplanConfig extends App {
+@WebServlet(name="SwitchboardChoose", urlPatterns = "/switch/choose")
+public class SwitchboardChoose extends App {
 
 
     @Override
@@ -18,7 +18,7 @@ public class DialplanConfig extends App {
 
 
 
-        render("pages/switchboard/config.twig", resp);
+        render("pages/switchboard/choose.twig", resp);
     }
 
 

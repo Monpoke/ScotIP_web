@@ -3,25 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    
-    <servlet>
-        <servlet-name>Contact</servlet-name>
-        <servlet-class>scotip.web.pages.Contact</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>Contact</servlet-name>
-        <url-pattern>/contact</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>DialplanConfig</servlet-name>
-        <servlet-class>scotip.web.pages.DialplanConfig</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DialplanConfig</servlet-name>
-        <url-pattern>/switch/dialplan/config</url-pattern>
-    </servlet-mapping>
 
 </web-app>

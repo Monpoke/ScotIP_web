@@ -1,0 +1,102 @@
+{% extends "../../layouts/base.twig" %}
+
+{% block title %}
+    My switchboards
+{% endblock %}
+{% block pageHeader %}
+    My switchboards
+    <small>or create a new one</small>
+{% endblock %}
+
+{% block breadcrumb %}
+    <li><a href="/switch/choose">Switchboard</a></li>
+    <li class="active"><a href="#">List</a></li>
+{% endblock %}
+
+
+{% block pageContent %}
+
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Switchboards</span>
+                    <span class="info-box-number">1 <small> /</small> 2</span>
+                </div><!-- /.info-box-content -->
+            </div><!-- /.info-box -->
+        </div><!-- /.col -->
+
+    </div><!-- /.row -->
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Available switchboards</h3>
+
+
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+
+
+                        <div class="col-md-12">
+
+                            <!-- ADD -->
+                            <a href="#">
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    <div class="info-box">
+                                        <span class="info-box-icon bg-blue"><i
+                                                    class="ion ion-ios-plus-outline"></i></span>
+                                        <div class="info-box-content">
+                                        <span class="info-box-number">
+                                            NEW
+                                        </span>
+                                        </div><!-- /.info-box-content -->
+                                    </div><!-- /.info-box -->
+                                </div><!-- /.col -->
+                            </a>
+
+                            {% for i in 0..0 %}
+                                <a href="/switch/dialplan/config?configure={{ i }}">
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="info-box">
+                                        <span class="info-box-icon bg-gray"><i
+                                                    class="ion ion-ios-gear-outline"></i></span>
+                                            <div class="info-box-content">
+                                            <span class="info-box-text">
+                                                MY {{ i }} SUPER COMPANY
+                                            </span>
+
+                                            </div><!-- /.info-box-content -->
+                                        </div><!-- /.info-box -->
+                                    </div><!-- /.col -->
+                                </a>
+                            {% endfor %}
+
+
+                        </div><!-- /.col -->
+
+
+                    </div><!-- /.row -->
+                </div><!-- ./box-body -->
+
+
+                <div class="box-footer">
+                    <div class="row">
+
+
+                    </div><!-- /.row -->
+                </div><!-- /.box-footer -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+
+
+
+{% endblock %}
+
