@@ -1,12 +1,13 @@
 {% extends "../../layouts/base.twig" %}
 
 {% block pageHeader %}
-    Configuration
+    Configuration {{  servletName }}
     <small>dialplan</small>
 {% endblock %}
 
 {% block breadcrumb %}
-    <li><a href="/contact">Switchboard</a></li>
+    <li><a href="/switch/choose">Switchboard</a></li>
+    <li class="active"><a href="#">Dialplan</a></li>
 {% endblock %}
 
 

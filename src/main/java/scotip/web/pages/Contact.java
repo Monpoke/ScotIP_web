@@ -16,16 +16,14 @@ import java.util.Map;
 /**
  * Created by Pierre on 18/04/2016.
  */
-@WebServlet(name = "Home", urlPatterns = "/")
+@WebServlet(name = "Home", urlPatterns = "") // yes, it is for serving "/"
 public class Contact extends App {
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-
-        render("pages/home/index.twig", resp);
+        render("pages/home/index.twig", req, resp);
     }
 
 

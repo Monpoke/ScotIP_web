@@ -18,7 +18,8 @@ public class SwitchboardChoose extends App {
 
 
 
-        render("pages/switchboard/choose.twig", resp);
+
+        render("pages/switchboard/choose.twig", req, resp);
     }
 
 

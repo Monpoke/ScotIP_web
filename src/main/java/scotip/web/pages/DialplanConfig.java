@@ -18,7 +18,7 @@ public class DialplanConfig extends App {
 
 
 
-        render("pages/switchboard/config.twig", resp);
+        render("pages/switchboard/config.twig", req, resp);
     }
 
 
