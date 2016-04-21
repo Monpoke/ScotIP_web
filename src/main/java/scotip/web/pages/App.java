@@ -4,9 +4,6 @@ import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +21,7 @@ public class App extends HttpServlet {
     /**
      * Contains the called servlet.
      */
-    private String servletName = "noName";
+    protected String sidebarMenu = "noName";
 
 
     /**
@@ -49,7 +46,7 @@ public class App extends HttpServlet {
     protected void render(String templatePath, HttpServletRequest req, HttpServletResponse resp, Map<String, Object> model) {
 
         // servlet name
-        servletName = "nul name : "+  req.getServletContext().getServletContextName();
+        //sidebarMenu = "nul name : "+  req.getServletContext().getServletContextName();
 
         // Provide some values for model
         fillModelValues(model);
@@ -82,7 +79,7 @@ public class App extends HttpServlet {
     }
 
     private void fillModelValues(Map<String, Object> model) {
-        model.put("servletName", servletName);
+        model.put("sidebarMenu", sidebarMenu);
     }
 
     /**

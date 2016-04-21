@@ -12,6 +12,12 @@ import java.io.IOException;
 @WebServlet(name="DialplanConfig", urlPatterns = "/switch/dialplan/config")
 public class DialplanConfig extends App {
 
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        sidebarMenu = "switchboard";
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
