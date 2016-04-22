@@ -3,7 +3,9 @@ package scotip.web.pages;
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
+import scotip.util.SessionUtil;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +25,23 @@ public class App extends HttpServlet {
      */
     protected String sidebarMenu = "noName";
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        manageSessions(req);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        manageSessions(req);
+    }
+
+    /**
+     * Manages the sessions
+     * @param req
+     */
+    private void manageSessions(HttpServletRequest req) {
+        SessionUtil.manage(req);
+    }
 
     /**
      * Renders a Twig template.
@@ -80,6 +99,10 @@ public class App extends HttpServlet {
 
     private void fillModelValues(Map<String, Object> model) {
         model.put("sidebarMenu", sidebarMenu);
+
+        if(!model.containsKey("POST")){
+            model.put("POST", new HashMap<>());
+        }
     }
 
     /**

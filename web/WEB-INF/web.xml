@@ -5,4 +5,15 @@
          version="3.1">
 
 
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors/404</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors/500</location>
+    </error-page>
+
 </web-app>
