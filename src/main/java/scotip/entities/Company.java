@@ -167,6 +167,7 @@ public class Company {
         this.password = password;
     }
 
+    public boolean isGoodPassword(String pass){return pass.equals(getPassword());}
 
     public Company(){
         setRegistrationDate(new Date());
