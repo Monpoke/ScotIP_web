@@ -1,6 +1,7 @@
 package scotip.web.pages.filters;
 
 import com.mysql.jdbc.log.Log4JLogger;
+import scotip.util.UrlUtil;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -37,6 +38,12 @@ public class LoggedFilter implements Filter {
         System.out.println(session.toString());
 
         if(!isLogged){
+
+            // session should be created
+            if(session!=null){
+                session.setAttribute("lastUserForbiddenPage", UrlUtil.getFullURL(request));
+            }
+
             response.sendRedirect("/?needLogin");
         }
 

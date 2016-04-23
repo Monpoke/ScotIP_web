@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Created by Pierre on 18/04/2016.
  */
-@WebServlet(name = "Home", urlPatterns = "/about") // yes, it is for serving "/"
+@WebServlet(name = "About", urlPatterns = "/about") // yes, it is for serving "/"
 public class About extends App {
 
     @Override

@@ -46,11 +46,19 @@ public class Login extends App {
         /**
          * Check password
          */
-        if (comp.isGoodPassword(pass)) {
+        if (comp != null && comp.isGoodPassword(pass)) {
             HttpSession session = req.getSession(true);
             session.setAttribute("isLogged", true);
             session.setAttribute("company", comp);
-            resp.getWriter().print("ok");
+
+
+            String redirectUserTo = "/u/dashboard?logged=1";
+
+            // have we a redirect 403?
+            if(session.getAttribute("lastUserForbiddenPage") != null){
+                redirectUserTo = session.getAttribute("lastUserForbiddenPage").toString();
+            }
+            resp.getWriter().print("@"+redirectUserTo);
         } else {
             resp.getWriter().print("error");
         }

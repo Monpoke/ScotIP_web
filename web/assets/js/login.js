@@ -2,14 +2,10 @@
  * Created by svevia on 23/04/2016.
  */
 $(document).ready(function () {
-    $("#signIn").click(function (e) {
-        login(e);
-    });
 
-    $("#loginForm").keypress(function (e) {
-        if (e.keyCode == 13) {
-            login(e);
-        }
+    $("#loginForm").submit(function (e) {
+        e.preventDefault();
+        login(e);
     });
 
     function login(e) {
@@ -23,18 +19,24 @@ $(document).ready(function () {
 
 function checkLogin(mail, pass) {
     $.ajax({
+        beforeSend: function(){
+          // lock fields
+        },
+
+
         type: 'POST',
         url: "/login",
         dataType: "html",
         data: 'mail=' + mail + '&pass=' + pass,
         success: function (data) {
-            if (data === "ok") {
-                location.reload();
+
+            if (data.charAt(0) === "@") {
+                location.href = data.substr(1);
             } else {
                 alert("Login error.");
             }
         },
-        fail: function () {
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
             alert("Oooops. Something goes wrong.")
         }
     });

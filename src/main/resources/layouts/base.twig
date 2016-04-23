@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
+
+    <!-- SCOTIP -->
+    <link rel="stylesheet" href="/assets/css/scotip.css">
+
     <link rel="stylesheet" href="/assets/css/skins/skin-blue.min.css">
 
     {% block cssFiles %}{% endblock %}
@@ -66,7 +66,6 @@
                         {% include "../menus/visitor/visitorTop.twig" %}
                     {% endif %}
                 </ul>
-
             </div>
         </nav>
     </header>
@@ -200,14 +199,12 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="/assets/libs/bootstrap/js/bootstrap.min.js"></script>
-<!-- AdminLTE scotip.web.pages.App -->
+
+
 <script src="/assets/js/app.min.js"></script>
 {% block jsFiles %}
 {% endblock %}
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. Slimscroll is required when using the
-     fixed layout. -->
+
 
 {% if isLogged == false %}
     <script src="/assets/js/login.js"></script>

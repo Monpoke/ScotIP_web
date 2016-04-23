@@ -1,42 +1,47 @@
-<!-- User Account Menu -->
-<li class="dropdown user user-menu">
-    <!-- Menu Toggle Button -->
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+<li class="dropdown user user-menu" id="loginMenu">
+    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">
         <!-- The user image in the navbar-->
-        <img src="http://fr.gravatar.com/avatar/visitor" class="img-circle user-image" alt="User Image">
+        <i class="fa fa-lock"></i>
 
         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-        <span class="hidden-xs">Unknown user</span>
+        <span class="hidden-xs">Login</span>
     </a>
-    <ul class="dropdown-menu">
-        <!-- The user image in the menu -->
-        <li class="user-header">
-            <img src="http://fr.gravatar.com/avatar/visitor" class="img-circle" alt="User Image">
-            <form class="form-horizontal" id="loginForm">
-                <div class="form-group">
-                    <label for="mail" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="email" class="form-control" id="mail" placeholder="Email">
+
+
+    <div class="dropdown-menu">
+        <form class="form" id="loginForm">
+
+            <div class="row">
+                <!-- The user image in the menu -->
+                <div class="col-md-12 user-header">
+                    <img src="http://fr.gravatar.com/avatar/visitor" class="img-circle" alt="User Image">
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="mail" placeholder="Email">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="pass" class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control" id="pass" placeholder="Password">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="pass" placeholder="Password">
+                        </div>
                     </div>
+
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+            </div>
+
+            <div class="row">
+                <!-- Menu Footer-->
+                <div class="col-md-12 user-footer">
+                    <div class="pull-left">
                         <button id="signIn" type="submit" class="btn btn-default">Sign in</button>
                     </div>
+                    <div class="pull-right">
+                        <a href="/logintest" class="btn btn-default btn-flat">Login test</a>
+                    </div>
                 </div>
-            </form>
-        </li>
-        <!-- Menu Footer-->
-        <li class="user-footer">
-            <div class="text-center">
-                <a href="/logintest" class="btn btn-default btn-flat">Login test</a>
             </div>
-        </li>
-    </ul>
+        </form>
+    </div>
+
 </li>
