@@ -20,7 +20,7 @@ import java.util.Objects;
 /**
  * Created by Pierre on 18/04/2016.
  */
-@WebServlet(name = "SwitchboardNew", urlPatterns = "/switch/new")
+@WebServlet(name = "SwitchboardNew", urlPatterns = "/u/switch/new")
 public class SwitchboardNew extends App {
 
     @Override
@@ -68,11 +68,13 @@ public class SwitchboardNew extends App {
          */
         // accessCode and Shared line
         int accessCode = -1, sharedLine = -1;
+        Line chosenLine = null;
+        LineDAO lineDAO = new LineDAO();
 
         // Check if it is a shared number or not
         String typeNumber = req.getParameter("typeNumber");
         previousPOST.put("typeNumber", typeNumber);
-        if (typeNumber.equals("shared")) {
+        if (typeNumber != null && typeNumber.equals("shared")) {
 
             try {
                 sharedLine = Integer.parseInt(req.getParameter("sharedLine"));
@@ -81,10 +83,19 @@ public class SwitchboardNew extends App {
             previousPOST.put("sharedLine", sharedLine);
             if (sharedLine < 0) {
                 formErrorPageContent += "This shared number is invalid." + "<br/>\n";
+            } else {
                 /**
-                 * @TODO Check the numero is existing
+                 * Check the numero is existing
                  */
+                chosenLine = lineDAO.getSharedNumber(sharedLine);
 
+                if(chosenLine==null){
+                    formErrorPageContent += "The shared line is invalid." + "<br/>\n";
+                }
+
+                /**
+                 * @TODO Have to check a line with the same accessCode
+                 */
             }
 
 
@@ -104,7 +115,7 @@ public class SwitchboardNew extends App {
 
             }
 
-        } else if (typeNumber.equals("dedicated")) {
+        } else if (typeNumber != null && typeNumber.equals("dedicated")) {
             formErrorPageContent += "This access mode is not supported at this time." + "<br/>\n";
 
         } else {

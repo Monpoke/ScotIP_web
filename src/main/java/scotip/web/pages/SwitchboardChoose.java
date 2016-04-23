@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Created by Pierre on 20/04/2016.
  */
-@WebServlet(name="SwitchboardChoose", urlPatterns = "/switch/choose")
+@WebServlet(name="SwitchboardChoose", urlPatterns = "/u/switch/choose")
 public class SwitchboardChoose extends App {
 
     @Override

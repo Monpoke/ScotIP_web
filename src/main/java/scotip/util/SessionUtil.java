@@ -1,5 +1,7 @@
 package scotip.util;
 
+import scotip.fixtures.CompanyFixtures;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -18,6 +20,21 @@ public abstract class SessionUtil {
      */
     public static void manage(HttpServletRequest req) {
         HttpSession session = req.getSession();
+
+        /**
+         * Testing
+         */
+        if(session.isNew()){
+            System.out.println("Test new");
+            // You're logged, but it's wrong mwahaha
+            session.setAttribute("isLogged", true);
+            session.setAttribute("currentCompany", CompanyFixtures.getSampleCompany());
+        } else {
+            System.out.println("Exists...");
+        }
+
+
+
     }
 
     /**

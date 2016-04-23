@@ -28,15 +28,21 @@ public class LineDAO extends BaseDAO {
         return sharedNumbers;
     }
 
+    /**
+     * Get shared number.
+     *
+     * @param id
+     * @return
+     */
     public Line getSharedNumber(int id) {
         Line toReturn = null;
         Session session = getSession();
 
         Query query = session.createQuery("from Line line WHERE line.lineId = :lineId");
-        query.setParameter("lineId",id);
+        query.setParameter("lineId", id);
         try {
             toReturn = (Line) query.uniqueResult();
-        } catch(NonUniqueResultException nure){
+        } catch (NonUniqueResultException nure) {
             nure.printStackTrace();
         }
         session.close();

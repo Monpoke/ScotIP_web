@@ -26,17 +26,8 @@ public class CompanyFixtures {
             tx = session.beginTransaction();
 
             // FRENCH LINE
-            Company company = new Company();
-            company.setName("SCOTIP Software");
+            Company company = getSampleCompany();
 
-            company.setAddress("101, Baker Street");
-            company.setCity("Holmes");
-            company.setPostcode("59650");
-            company.setCountry("United Kingdom");
-
-            company.setContactMail("sherlock@watson.io");
-            company.setContactName("Sherlock Holmes");
-            company.setContactPhone("118218");
             session.save(company);
 
             tx.commit();
@@ -49,4 +40,23 @@ public class CompanyFixtures {
         }
     }
 
+
+    /**
+     * Sample company
+     * @return
+     */
+    public static Company getSampleCompany() {
+        Company company = new Company();
+        company.setName("SCOTIP Software");
+
+        company.setAddress("101, Baker Street");
+        company.setCity("Holmes");
+        company.setPostcode("59650");
+        company.setCountry("United Kingdom");
+
+        company.setContactMail("sherlock@watson.io");
+        company.setContactName("Sherlock Holmes");
+        company.setContactPhone("118218");
+                return company;
+    }
 }
