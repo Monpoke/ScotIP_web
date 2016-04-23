@@ -1,11 +1,14 @@
 package scotip.web.pages.nonLogged;
 
+import scotip.dao.CompanyDAO;
+import scotip.entities.Company;
 import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -13,6 +16,9 @@ import java.io.IOException;
  */
 @WebServlet(name = "Login", urlPatterns = "/login")
 public class Login extends App {
+
+    CompanyDAO dao = new CompanyDAO();
+
 
     @Override
     public void init() throws ServletException {
@@ -23,9 +29,20 @@ public class Login extends App {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req,resp);
-        render("pages/static/construction.twig", req, resp);
+
+
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("mail");
+        String pass = req.getParameter("pass");
+        Company comp = dao.getCompany(login);
+        if(comp.isGoodPassword(pass)){
+            HttpSession session = req.getSession(true);
+            session.setAttribute("company", comp);
+        }
+
+    }
 
 }
