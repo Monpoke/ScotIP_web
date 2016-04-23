@@ -1,4 +1,4 @@
-{% extends layoutBase %}
+{% extends "../../layouts/base.twig" %}
 
 {% block title %}
     My switchboards
@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block breadcrumb %}
-    <li><a href="/switch/choose">Switchboard</a></li>
+    <li><a href="/u/switch/choose">Switchboard</a></li>
     <li class="active"><a href="#">List</a></li>
 {% endblock %}
 
@@ -46,7 +46,7 @@
                         <div class="col-md-12">
 
                             <!-- ADD -->
-                            <a href="/switch/new">
+                            <a href="/u/switch/new">
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <div class="info-box">
                                         <span class="info-box-icon bg-blue"><i
@@ -61,7 +61,7 @@
                             </a>
 
                             {% for i in 0..0 %}
-                                <a href="/switch/dialplan/config?configure={{ i }}">
+                                <a href="/u/switch/dialplan/config?configure={{ i }}">
                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                         <div class="info-box">
                                         <span class="info-box-icon bg-gray"><i

@@ -35,7 +35,7 @@ public class Welcome extends App {
 
         // Welcome back.
         if (req.getParameter("logout") != null) {
-            model.put("pageSpecialAlert", new AlertMessage("danger", "You have been logout."));
+            model.put("pageSpecialAlert", new AlertMessage("warning", "You have been logout."));
         }else if (req.getParameter("needLogin") != null) {
             model.put("pageSpecialAlert", new AlertMessage("danger", "You have to be logged to view this page."));
         }
