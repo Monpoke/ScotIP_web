@@ -1,4 +1,6 @@
-package scotip.web.pages;
+package scotip.web.pages.logged;
+
+import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +11,8 @@ import java.io.IOException;
 /**
  * Created by Pierre on 18/04/2016.
  */
-@WebServlet(name="Logout", urlPatterns = "/logout")
-public class Logout extends App {
+@WebServlet(name="DialplanConfig", urlPatterns = "/u/switch/dialplan/config")
+public class DialplanConfig extends App {
 
     @Override
     public void init() throws ServletException {
@@ -21,11 +23,10 @@ public class Logout extends App {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if(req.getSession() != null){
-            req.getSession().invalidate();
-            resp.sendRedirect("/?logout=1");
-        }
 
+
+
+        render("pages/switchboard/config.twig", req, resp);
     }
 
 

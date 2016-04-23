@@ -1,9 +1,10 @@
-package scotip.web.pages;
+package scotip.web.pages.logged;
 
 import com.mitchellbosecke.pebble.PebbleEngine;
 import com.mitchellbosecke.pebble.error.PebbleException;
 import com.mitchellbosecke.pebble.template.PebbleTemplate;
 import scotip.util.SessionUtil;
+import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

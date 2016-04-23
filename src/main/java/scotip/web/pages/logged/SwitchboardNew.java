@@ -1,4 +1,4 @@
-package scotip.web.pages;
+package scotip.web.pages.logged;
 
 import org.hibernate.Session;
 import scotip.dao.LineDAO;
@@ -7,6 +7,7 @@ import scotip.entities.Company;
 import scotip.entities.Line;
 import scotip.entities.Switchboard;
 import scotip.util.SessionUtil;
+import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

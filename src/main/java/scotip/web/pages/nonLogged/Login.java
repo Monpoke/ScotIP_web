@@ -1,4 +1,7 @@
-package scotip.web.pages;
+package scotip.web.pages.nonLogged;
+
+import scotip.fixtures.CompanyFixtures;
+import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,21 +13,20 @@ import java.io.IOException;
 /**
  * Created by Pierre on 18/04/2016.
  */
-@WebServlet(name = "Home", urlPatterns = "") // yes, it is for serving "/"
-public class Contact extends App {
+@WebServlet(name = "Login", urlPatterns = "/login")
+public class Login extends App {
 
     @Override
     public void init() throws ServletException {
         super.init();
-        sidebarMenu = "home";
+        sidebarMenu = "login";
     }
 
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req,resp);
 
-        //render("pages/home/index.twig", req, resp);
+
     }
 
 

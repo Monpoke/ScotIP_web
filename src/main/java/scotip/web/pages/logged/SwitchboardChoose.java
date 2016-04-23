@@ -1,4 +1,6 @@
-package scotip.web.pages;
+package scotip.web.pages.logged;
+
+import scotip.web.pages.App;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Pierre on 18/04/2016.
+ * Created by Pierre on 20/04/2016.
  */
-@WebServlet(name="DialplanConfig", urlPatterns = "/u/switch/dialplan/config")
-public class DialplanConfig extends App {
+@WebServlet(name="SwitchboardChoose", urlPatterns = "/u/switch/choose")
+public class SwitchboardChoose extends App {
 
     @Override
     public void init() throws ServletException {
@@ -24,7 +26,8 @@ public class DialplanConfig extends App {
 
 
 
-        render("pages/switchboard/config.twig", req, resp);
+
+        render("pages/switchboard/choose.twig", req, resp);
     }
 
 
