@@ -7,6 +7,9 @@ import scotip.entities.Company;
 import scotip.entities.Line;
 import scotip.util.HibernateFactory;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 /**
  * Created by Pierre on 21/04/2016.
  */
@@ -27,7 +30,6 @@ public class CompanyFixtures {
 
             // FRENCH LINE
             Company company = getSampleCompany();
-
             session.save(company);
 
             tx.commit();
@@ -43,6 +45,7 @@ public class CompanyFixtures {
 
     /**
      * Sample company
+     *
      * @return
      */
     public static Company getSampleCompany() {
@@ -57,6 +60,14 @@ public class CompanyFixtures {
         company.setContactMail("sherlock@watson.io");
         company.setContactName("Sherlock Holmes");
         company.setContactPhone("118218");
-                return company;
+        try {
+            company.setPlainPassword("scotip");
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        return company;
     }
 }

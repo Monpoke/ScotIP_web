@@ -1,6 +1,5 @@
 <!-- User Account Menu -->
 <li class="dropdown user user-menu">
-    <script src="/web/asses/js/login.js"></script>
     <!-- Menu Toggle Button -->
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
         <!-- The user image in the navbar-->
@@ -13,7 +12,7 @@
         <!-- The user image in the menu -->
         <li class="user-header">
             <img src="http://fr.gravatar.com/avatar/visitor" class="img-circle" alt="User Image">
-            <form class="form-horizontal">
+            <form class="form-horizontal" id="loginForm">
                 <div class="form-group">
                     <label for="mail" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-10">
@@ -33,18 +32,6 @@
                 </div>
             </form>
         </li>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#signIn").click(function () {
-                    mail = $('#mail').val();
-                    pass = $('#pass').val();
-                    checkLogin(mail, pass);
-                });
-            })
-        </script>
-
-
         <!-- Menu Footer-->
         <li class="user-footer">
             <div class="text-center">

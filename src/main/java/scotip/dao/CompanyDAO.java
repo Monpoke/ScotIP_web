@@ -14,7 +14,7 @@ public class CompanyDAO extends BaseDAO{
         Company toReturn = null;
         Session session = getSession();
 
-        Query query = session.createQuery("from Company company WHERE company.mail = :mail");
+        Query query = session.createQuery("from Company company WHERE company.ContactMail = :mail");
         query.setParameter("mail", mail);
         try {
             toReturn = (Company) query.uniqueResult();

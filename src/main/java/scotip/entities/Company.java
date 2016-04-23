@@ -172,6 +172,10 @@ public class Company {
         this.password = password;
     }
 
+    public void setPlainPassword(String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        setPassword(hashPassword(password));
+    }
+
     public boolean isGoodPassword(String pass){
         String password = null;
         try {
