@@ -1,7 +1,14 @@
 package scotip.entities;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.persistence.*;
+import java.math.BigInteger;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
+
 
 
 /**
@@ -53,6 +60,8 @@ public class Company {
 
     @Column(name = "password")
     private  String password;
+
+
 
 
     public int getId() {
@@ -151,10 +160,6 @@ public class Company {
         this.registrationDate = registrationDate;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
     public void setSalt(String salt) {
         this.salt = salt;
     }
@@ -167,7 +172,52 @@ public class Company {
         this.password = password;
     }
 
-    public boolean isGoodPassword(String pass){return pass.equals(getPassword());}
+    public boolean isGoodPassword(String pass){
+        String password = null;
+        try {
+            password = hashPassword(pass);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return password.equals(getPassword());}
+
+
+    private  String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException
+    {
+        int iterations = 1000;
+        char[] chars = password.toCharArray();
+        byte[] salt = getSalt().getBytes();
+
+        PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
+        SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        byte[] hash = skf.generateSecret(spec).getEncoded();
+        return  toHex(salt) + toHex(hash);
+    }
+
+    private  String getSalt() throws NoSuchAlgorithmException
+    {
+        if(this.salt == null || this.salt == ""){
+            byte[] salt = new byte[16];
+            new SecureRandom().nextBytes(salt);
+            this.salt = salt.toString();
+        }
+        return this.salt;
+    }
+
+    private  String toHex(byte[] array) throws NoSuchAlgorithmException
+    {
+        BigInteger bi = new BigInteger(1, array);
+        String hex = bi.toString(16);
+        int paddingLength = (array.length * 2) - hex.length();
+        if(paddingLength > 0)
+        {
+            return String.format("%0"  +paddingLength + "d", 0) + hex;
+        }else{
+            return hex;
+        }
+    }
 
     public Company(){
         setRegistrationDate(new Date());
